@@ -1,0 +1,48 @@
+.main-counts-all {
+  width: 290px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: rgb(206, 206, 255);
+  border: 1px solid rgb(120, 120, 255);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  padding-left: 10px;
+}
+.main-counts-all-logo {
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+.main-counts-all pre {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(120, 120, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+}
+.main-counts-all div {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main-counts-all div p{
+  padding: 0;
+  margin: 0;
+}
+.main-counts-all div span{
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+}
+.main-counts-all div h4 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  color: rgb(38, 38, 255);
+}

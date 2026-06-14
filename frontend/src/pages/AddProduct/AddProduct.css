@@ -1,0 +1,84 @@
+.add-product-form {
+    width: 450px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #ffffff;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px 20px;
+}
+.add-product-form h1 {
+    font-family: "Inter", "Roboto";
+    font-weight: 500;
+    font-size: 30px;
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+.form-group input {
+    height: 44px;
+    width: 420px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.form-group textarea {
+    height: 180px;
+    width: 450px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    transition: 0.2s;
+    box-sizing: border-box;
+    resize: none;
+}
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.add-product-button {
+    height: 44px;
+    width: 450px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 14px;
+    border: none;
+    font-size: 20px;
+}
+.add-product-button:hover {
+    opacity: 0.9;
+}
+.error {
+    font-family: "Inter", "Roboto";
+    font-weight: 400;
+    font-size: 16px;
+    color: red;
+    background-color: white;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

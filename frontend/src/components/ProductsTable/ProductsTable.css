@@ -1,0 +1,104 @@
+.table-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table thead {
+  background: #fafafa;
+}
+
+.products-table th {
+  padding: 18px 20px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.products-table td {
+  padding: 18px 20px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 14px;
+  color: #111827;
+}
+
+.product-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.product-description {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.in_stock {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.low_stock {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.out_of_stock {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,.get-one-btn,
+.delete-btn {
+  border: none;
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-btn {
+  background: orange;
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+.get-one-btn {
+    background: rgb(0, 204, 0);
+}
+
+.edit-btn:hover {
+    opacity: 0.9;
+}
+
+.delete-btn:hover {
+    opacity: 0.9;
+}
+
+.get-one-btn:hover {
+    opacity: 0.9;
+}

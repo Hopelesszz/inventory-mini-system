@@ -1,0 +1,48 @@
+.main-counts-out-of-stock {
+    width: 290px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: rgb(255, 207, 207);
+    border: 1px solid rgb(255, 117, 117);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding-left: 15px;
+}
+.main-counts-out-of-stock-logo {
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+.main-counts-out-of-stock pre {
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+}
+.main-counts-out-of-stock div {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main-counts-out-of-stock div p{
+  padding: 0;
+  margin: 0;
+}
+.main-counts-out-of-stock div span{
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+}
+.main-counts-out-of-stock div h4 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  color: red;
+}
