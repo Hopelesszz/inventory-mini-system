@@ -10,8 +10,6 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-    networks:
-      - inventory_network
 
   backend:
     build: ./backend
@@ -22,8 +20,6 @@ services:
       DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/inventory-mini-system?schema=public"
     depends_on:
       - postgres
-    networks:
-      - inventory_network
 
   frontend:
     build: ./frontend
@@ -32,12 +28,6 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-    networks:
-      - inventory_network
 
 volumes:
   pgdata:
-
-networks:
-  inventory_network:
-    driver: bridge
