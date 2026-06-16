@@ -1,0 +1,77 @@
+How to run a project:
+1. You need to launch Docker on your machine and run: docker compose up --build -d.
+2. If you want to stop container run: docker compose down. 
+3. If you stopped the project and you want to run it again run: docker compose up -d
+
+Used technologies:
+1. Frontend: React.js, axios, Font Awesome, CSS, react-router-dom.
+2. Backend: Node.js, Express.js, Prisma, nodemon, dotenv, cors
+3. Database: PostgreSQL.
+4. Docker.
+
+API endpoints(`http://localhost:5555`): 
+1. GET `/products` — Get the list of all products.
+2. GET `/product/:id` - Get the product by its ID. 
+3. POST `/products` — Create a new product.
+4. PUT `/products/:id` — Update an existing product by its ID.
+5. DELETE `/products/:id` — Delete a product by its ID.
+
+Database description:
+The project uses PostgreSQL. This is object-relational database management system for reliable storing, getting and editing data. Also this project uses Prisma. This is ORM system which allows you to manage data by using JavaScript or TypeScript instaed of writing SQL requests.
+Table: "Product"
+| `id` | `String` | `@id`, `@default(uuid())` | Primary key, unique autpgenerated string id of the product. 
+| `name` | `String` | `@unique` | The name of the product. Product name must be unique.
+| `quantity` | `Int` | Current product quantity. 
+| `price` | `Float` | Current price of the product. 
+| `status` | `String` | Dynamic evaluation string (`in_stock`, `low_stock`, `out_of_stock`). 
+| `description`| `String?` | `Nullable (Optional)` | `@unique` | Detailed text description of the product. 
+| `createdAt` | `DateTime` | `@default(now())` | Automatic timestamp generated upon item creation. 
+| `updatedAt` | `DateTime` | `@updatedAt` | Automatic timestamp updated upon any record mutation. 
+
+Docker Description:
+There are 3 services:
+1. `database` (`inventory_postgres`)
+   - Image: `postgres:16-alpine` (A lightweight, production-ready Linux distribution).
+   - Port: Exposed on `5432`.
+   - Persistence: Uses a named Docker volume (`pgdata`) mapped to `/var/lib/postgresql/data`. This guarantees that your data is permanently stored on the host machine's disk and survive container deletion (`docker compose down`).
+2. `backend` (`inventory_backend`)
+   - Build Blueprint: Multi-stage setup defined in `./backend/Dockerfile`.
+   - Port: Exposed on `5555`.
+   - Prisma Integration: Runs `npx prisma generate` and `npm install` inside the container during the image build. 
+3. `frontend` (`inventory_frontend`)
+   - Build Blueprint:** Configured in `./frontend/Dockerfile`.
+   - Port: Exposed on `3000`.
+   - Role: Serves the single-page React application. Linked with backend by proxy(package.json raw 44)
+
+What is completed:
+1. Backend (Express.js & Prisma ORM)
+- Database Setup: Created a database and conneted database to backend.
+- Prisma Integration: I configured prisma in my project. After i configured the product model and migrated it to the database to add the “Product” table.
+- Full CRUD Functionality: Written endpoints and controller logic for creating, viewing, updating, and deleting products.
+- Basic validation: I have implemented validation to fields name, quantity, price, description. This validation validates data before add a new product or update a current product.
+- Status Calculation: Implemented status calculation. This calculation works before  add a new product or update a current product. (`in_stock` if qty > 5, `low_stock` if 1-5, `out_of_stock` if 0).
+
+2. Frontend (React & Axios)
+- User interface: Created user interface.
+- Connection with backend: Connected React app with backend by proxy.
+- React-router-dom usage: Implemented react-router-dom library to create urls for pages.
+- Pages: Created 3 pages: Home Page, Add Product page, Edit product page.
+- Modal windows: Created 2 modal windows: Modal window for product delete confirmation. Modal window for showing information about product. 
+- Components: Created UI components such as: Header, ProductTable, LowStockCard, InStock Card e.t.c and imported them in pages.
+- Using backend requests with frontend: Using backend URLs to make requests to add, get, patch, delete products. 
+
+3. Docker 
+- Multi-Container Containerization: Written Dockerfiles for backend and frontend environments.
+- Docker Compose Orchestration: Configured a single root-level Docker compose file for automating the builds.
+- Permanent Volumes: Configured named storage volumes (`pgdata`) to make product data survive full container teardowns.
+- Git Version Control Safety: Created `.gitignore` file to not push unnecessary code to GitHub repository.
+
+What is not completed:
+The whole requirements in test task have been developed and implemented. The additional part which i wanted to implement is adaptive interface, authification. User table with users list.
+
+AI Usage Report:
+I used an AI for generating pictures of UI to recreate same UI in React application. Also part of the interface was created by AI such as: components "Product tables" and "Product Table". Also i used AI to create Dockerfile and Docker Compose, to create test products for database and i asked 1 question about unnecessary file in React application. I manually changed some parts of UI and Dockerfiles. For me was hard to understand code of Dockerfiles.
+3 prompts which i used:
+1. "На основі задвання котре я тобі відправив згенеруй фотографію головної сторінки в браузері."
+2. "Для чого в React файл reportWebVitals.js і чи можна його видалити?"
+3. "Чи можешь зверстати таблицю продуктів за допомогою реакт та css?"

@@ -6,4 +6,4 @@ COPY prisma ./prisma/
 RUN npx prisma generate
 COPY . .
 EXPOSE 5555
-CMD ["npm","run","dev","--","--host"]
+CMD npx prisma db push && npm run dev -- --host
